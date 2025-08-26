@@ -63,7 +63,7 @@ public class AuthenticationService {
         //return "";
     }
 
-    public void registerUser(String username, String password, String email){
+    public boolean registerUser(String username, String password, String email){
         String safeUsername = username.replace("'", "''");
         String safePass = password.replace("'", "''");
         String safeEmail = email.replace("'", "''");
@@ -102,6 +102,9 @@ public class AuthenticationService {
 
         if(response.hasErrors()){
             throw new RuntimeException("Failed to insert user: " + response.getInsertErrors());
+        }
+        else{
+            return true;
         }
     }
 }

@@ -27,6 +27,21 @@ public class StoryController {
         return storyService.getStories();
     }
 
+    @GetMapping("/getUserStories/{username}")
+    public List<Story> getUserStories(@PathVariable String username){
+        return storyService.getUserStories(username);
+    }
+
+    @GetMapping("/getMostViewedStory")
+    public Story getMostViewedStory(){
+        return storyService.getMostViewedStory();
+    }
+
+    @GetMapping("/getMostRecentlyUpdatedStory")
+    public Story getMostRecentlyUpdatedStory(){
+        return storyService.getMostRecentlyUpdatedStory();
+    }
+
     @PostMapping("/createStory")
     public Story postStory(@RequestBody StoryDTO dto) {
         Story story = new Story();
@@ -58,4 +73,10 @@ public class StoryController {
 
         return storyService.updateStory(id, story);
     }
+
+    @PostMapping("/incrementViews/{id}")
+    public Story incrementViews(@PathVariable String id) {
+        return storyService.incrementStoryViews(id);
+    }
+    
 }

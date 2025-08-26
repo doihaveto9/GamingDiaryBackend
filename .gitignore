@@ -31,3 +31,6 @@ build/
 
 ### VS Code ###
 .vscode/
+
+# Google Cloud credentials
+/src/main/resources/gaming-diary-469514-cf2435e25155.json
